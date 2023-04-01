@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticleListFragment">
+
+
+<!--    note:let's update our fragment_article_list.xml file
+            to use the RecyclerView instead of the generated TextView.-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/article_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_article" />
+<!--note: tools:listitem set to the item_article
+        allows the recycler view to show the items-->
+
+</FrameLayout>

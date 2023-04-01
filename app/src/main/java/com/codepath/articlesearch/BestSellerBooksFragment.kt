@@ -19,18 +19,15 @@ import com.codepath.articlesearch.R.layout
 import okhttp3.Headers
 import org.json.JSONObject
 
-// --------------------------------//
-// CHANGE THIS TO BE YOUR API KEY  //
-// --------------------------------//
 private const val API_KEY = BuildConfig.API_KEY
 /*
- * The class for the only fragment in the app, which contains the progress bar,
- * recyclerView, and performs the network calls to the NY Times API.
+ * note: The class for the only fragment in the app, which contains the progress bar,
+ *  recyclerView, and performs the network calls to the NY Times API.
  */
 class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
 
     /*
-     * Constructing the view
+     * note: Constructing the view
      */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,25 +43,25 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
     }
 
     /*
-     * Updates the RecyclerView adapter with new data.  This is where the
-     * networking magic happens!
+     * note: Updates the RecyclerView adapter with new data.  This is where the
+     *  networking magic happens!
      */
     private fun updateAdapter(progressBar: ContentLoadingProgressBar, recyclerView: RecyclerView) {
         progressBar.show()
 
-        // Create and set up an AsyncHTTPClient() here
+        //note: Create and set up an AsyncHTTPClient() here
         val client = AsyncHttpClient()
         val params = RequestParams()
         params["api-key"] = API_KEY
 
-        // Using the client, perform the HTTP request
+        //note: Using the client, perform the HTTP request
         client[
                 "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json",
                 params,
                 object : JsonHttpResponseHandler()
                 {
                     /*
-                     * The onSuccess function gets called when
+                     *note: The onSuccess function gets called when
                      * HTTP response status is "200 OK"
                      */
                     override fun onSuccess(
@@ -72,7 +69,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                         headers: Headers,
                         json: JSON
                     ) {
-                        // The wait for a response is over
+                        //note: The wait for a response is over
                         progressBar.hide()
 
                         val resultsJSON : JSONObject = json.jsonObject.get("results") as JSONObject
@@ -82,12 +79,12 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                         val models : List<BestSellerBook> = gson.fromJson(booksRawJSON, arrayTutorialType)
                         recyclerView.adapter = BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
 
-                        // Look for this in Logcat:
+                        //note: Look for this in Logcat:
                         Log.d("BestSellerBooksFragment", "response successful")
                     }
 
                     /*
-                     * The onFailure function gets called when
+                     *note: The onFailure function gets called when
                      * HTTP response status is "4XX" (eg. 401, 403, 404)
                      */
                     override fun onFailure(
@@ -96,10 +93,10 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                         errorResponse: String,
                         t: Throwable?
                     ) {
-                        // The wait for a response is over
+                        //note: The wait for a response is over
                         progressBar.hide()
 
-                        // If the error is not null, log it!
+                        //note: If the error is not null, log it!
                         t?.message?.let {
                             Log.e("BestSellerBooksFragment", errorResponse)
                         }
@@ -108,7 +105,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
     }
 
     /*
-     * What happens when a particular book is clicked.
+     * note: What happens when a particular book is clicked.
      */
     override fun onItemClick(item: BestSellerBook) {
         Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()

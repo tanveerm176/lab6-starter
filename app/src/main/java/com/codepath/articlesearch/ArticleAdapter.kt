@@ -49,10 +49,10 @@ class ArticleAdapter(private val context: Context, private val articles: List<Ar
         }
 
         override fun onClick(v: View?) {
-            // Get selected article
+            //note: Get selected article
             val article = articles[absoluteAdapterPosition]
 
-            // Navigate to Details screen and pass selected article
+            //note: Navigate to Details screen and pass selected article
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra(ARTICLE_EXTRA, article)
             context.startActivity(intent)

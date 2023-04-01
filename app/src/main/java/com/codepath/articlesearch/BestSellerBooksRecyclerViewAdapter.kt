@@ -11,8 +11,8 @@ import com.codepath.articlesearch.R.id
 import com.codepath.articlesearch.R.layout
 
 /**
- * [RecyclerView.Adapter] that can display a [BestSellerBook] and makes a call to the
- * specified [OnListFragmentInteractionListener].
+ * note: [RecyclerView.Adapter] that can display a [BestSellerBook] and makes a call to the
+ *  specified [OnListFragmentInteractionListener].
  */
 class BestSellerBooksRecyclerViewAdapter(
     private val books: List<BestSellerBook>,
@@ -27,8 +27,8 @@ class BestSellerBooksRecyclerViewAdapter(
     }
 
     /**
-     * This inner class lets us refer to all the different View elements
-     * (Yes, the same ones as in the XML layout files!)
+     * note: This inner class lets us refer to all the different View elements
+     *      (Yes, the same ones as in the XML layout files!)
      */
     inner class BookViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         val mBookTitle: TextView = mView.findViewById<View>(id.book_title) as TextView
@@ -44,7 +44,7 @@ class BestSellerBooksRecyclerViewAdapter(
     }
 
     /**
-     * This lets us "bind" each Views in the ViewHolder to its' actual data!
+     *note: This lets us "bind" each Views in the ViewHolder to its' actual data!
      */
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = books[position]
@@ -68,7 +68,7 @@ class BestSellerBooksRecyclerViewAdapter(
     }
 
     /**
-     * Remember: RecyclerView adapters require a getItemCount() method.
+     * note: RecyclerView adapters require a getItemCount() method.
      */
     override fun getItemCount(): Int {
         return books.size

@@ -4,6 +4,9 @@ import android.support.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+
+
+//note: where we define the json objects we need to grab
 @Keep
 @Serializable
 data class SearchNewsResponse(

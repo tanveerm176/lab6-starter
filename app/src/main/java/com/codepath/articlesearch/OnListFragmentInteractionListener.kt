@@ -1,10 +1,10 @@
 package com.codepath.articlesearch
 
 /**
- * This interface is used by the [BestSellerBooksRecyclerViewAdapter] to ensure
+ *note: This interface is used by the [BestSellerBooksRecyclerViewAdapter] to ensure
  * it has an appropriate Listener.
  *
- * In this app, it's implemented by [BestSellerBooksFragment]
+ *note: In this app, it's implemented by [BestSellerBooksFragment]
  */
 interface OnListFragmentInteractionListener {
     fun onItemClick(item: BestSellerBook)
